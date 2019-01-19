@@ -1,0 +1,40 @@
+*
+**
+***
+****
+*****
+******
+*******
+
+n linijek jako input w konsoli
+
+
+
+
+
+
+
+    *
+   ***
+  *****
+ *******
+*********
+n linijek jako input w konsoli
+
+
+
+******
+*    *
+*    *
+*    *
+*    *
+******
+n wielkosc boku
+
+
+
+    *
+   * *
+  *   *
+ *     *
+*********
