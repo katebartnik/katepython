@@ -22,8 +22,6 @@ class Game:
 
     def resolve_winner_index(self, player_option):
         ai_option = self.generate_random_tool_pick()
-        print(ai_option)
-        print(player_option)
 
         if (player_option == 0 and ai_option == 1) or (player_option == 2 and ai_option == 0) or (player_option == 1 and ai_option == 2):
             return 'ai'
@@ -39,8 +37,9 @@ class Game:
         return randint(0, len(self.available_tools_to_select) - 1)
 
     def print_score(self):
+        print("Player: " + player_index + ", score: " + str(self.players[player_index][self.player_score_index]))
         for player_index in self.players:
-            print("Player: " + player_index + ", score: " + str(self.players[player_index][self.player_score_index]))
+            pass
 
     def print_options(self):
         for tool_index in self.available_tools_to_select:

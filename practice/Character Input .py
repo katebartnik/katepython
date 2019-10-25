@@ -2,8 +2,8 @@ import datetime
 
 
 def till_onehundret(input_age):
-    now = datetime.datetime.now()
-    return now.year + 100 - input_age
+    currend_data_time = datetime.datetime.now()
+    return currend_data_time.year + 100 - input_age
 
 
 input_fullname = input("Podaj swoje imię i nazwisko: ")
