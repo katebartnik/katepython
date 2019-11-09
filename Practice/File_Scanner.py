@@ -18,4 +18,4 @@ def files_scan_2(path):
                 print(entry.name)
 
 
-files_scan_2("/home/kretowicz/Projects/learnPython/scanner/abcd")
+files_scan_2("/home/kasia/projects/kasiaPython/")

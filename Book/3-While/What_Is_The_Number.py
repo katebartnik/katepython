@@ -2,7 +2,7 @@
 
 import random
 
-the_number = random.randint(1, 100)
+the_number = random.randint(1, 50)
 guess = 0
 tries = 0
 
