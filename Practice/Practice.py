@@ -1,0 +1,2 @@
+nic = 'kate'
+print(nic)
