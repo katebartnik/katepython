@@ -18,26 +18,16 @@ Parametry produktu:
 - nazwa - wymagane
 - cena - wymagane
 - kod kreskowy
+
+Zrobić przykład w nowym pliku o nazwie test.py który będzie:
+ - inicjalizował sklep
+ - dodawał produkty, jeden z wszystkimi danymi drugi z danymi wymaganymi (appendProduct)
+ - pobierał dane produktu pierwszego na podstawie resolveProductById
+ - dodawał produkt trzeci, a usuwał pierwszy (resolveProductById) - dowolne dane
+ - wyświetlał listę produktów (productList)
 """
 
 from typing import *
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 class Product:
     def __init__(self, identifier: int, name: str, price: float) -> None:
@@ -75,104 +65,3 @@ class Product:
     def getPrice(self) -> float:
         return self.price
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-class Shop:
-    def __init__(self) -> None:
-        self.products: Dict[Product] = []
-
-    def appendProduct(self, productObject):
-        self.products.append(productObject)
-
-    def removeById(self, identifier):
-        for productObject in self.products:
-            if productObject.getId() == identifier:
-                self.products.remove(productObject)
-
-    def resolveProductById(self, identifier):
-        for productObject in self.products:
-            if productObject.getId() == identifier:
-                return productObject
-
-    def getProductList(self):
-        return self.products
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-waterProductObject = Product(1, "Water", 2.99)
-breadProductObject = Product(2, "Bread", 3.99)
-breadProductObject.setQuantity(20)
-
-ourShopObject = Shop()
-ourShopObject.appendProduct(waterProductObject)
-ourShopObject.appendProduct(breadProductObject)
-ourShopObjectProducts = ourShopObject.getProductList()
-
-
-for product in ourShopObjectProducts:
-    print(product.getName())
-    print(product.getPrice())
-    print(product.getQuantity())
-    print(product.getUrlPictures())
-
-findedProduct = ourShopObject.resolveProductById(1)
-print(findedProduct.getName())
