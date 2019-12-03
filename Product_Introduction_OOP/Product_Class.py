@@ -65,3 +65,4 @@ class Product:
     def getPrice(self) -> float:
         return self.price
 
+

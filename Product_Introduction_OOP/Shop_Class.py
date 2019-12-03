@@ -17,3 +17,4 @@ class Shop:
 
     def getProductList(self):
         return self.products
+
