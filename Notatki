@@ -1,0 +1,2 @@
+@property #zwraca cos albo True albo False
+#Zmienne prywatne - chcemy je zmieniać tylko za pomocą metod - powinny się zaczynać od podkreślenia __
