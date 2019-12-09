@@ -1,7 +1,7 @@
 class CashMachine:
 
     def __init__(self):
-        self._money = []
+        self._money = [] # pusta lista zwraca false
 
     @property
     def is_avaiable(self):

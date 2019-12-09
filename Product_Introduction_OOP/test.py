@@ -3,22 +3,17 @@ from Shop_Class import Shop
 
 waterProductObject = Product(1, "Water", 2.99)
 breadProductObject = Product(2, "Bread", 3.99)
-breadProductObject.setQuantity(20)
+chipsProductObject = Product(3, "Chips", 5.99)
+carrotProductObject = Product(6, "Carrot", 1.99)
+
 
 ourShopObject = Shop()
 ourShopObject.appendProduct(waterProductObject)
 ourShopObject.appendProduct(breadProductObject)
-ourShopObjectProducts = ourShopObject.getProductList()
+ourShopObject.appendProduct(chipsProductObject)
+ourShopObject.printProductList()
 
 
-for product in ourShopObjectProducts:
-    print(product.getName())
-    print(product.getPrice())
-    print(product.getQuantity())
-    print(product.getUrlPictures())
-
-
-findedProduct = ourShopObject.resolveProductById(1)
-print(findedProduct.getName())
-
-# ourShopObject.appendProduct()
+ourShopObject.removeProductById(2)
+ourShopObject.appendProduct(carrotProductObject)
+ourShopObject.printProductList()
