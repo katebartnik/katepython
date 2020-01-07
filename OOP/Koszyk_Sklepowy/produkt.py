@@ -1,52 +1,49 @@
+""""
+Utworz klase Product
+ktora bedzie dzialac tak:
+NazwaKlasy
+# >>> from produkt import Product
+# >>> pr = Product(1, "woda", 10.99)
+# >>> pr.id
+# >>> 1
+# >>> pr.name
+# >>> 'woda'
+# >>> pr.price
+# >>> 10.99
+# >>> pr.show()
+# >>> 'Woda (1), cena: 10.99'
+"""
+
 class Product:
-    id_ = 0
 
-    def __init__(self, name, price, id=None):
+    _NEXT_ID = 1  # atrybut klasowy
 
-        if id is not None:
-            self.id = id
-        else:
-            Product.id_ += 1
-            self.id = self.id_
+    def __init__(self, name, price):
+        self.id = self.get_id()  # pobiera atrybut klasowy i przypisuje do instancji
         self.name = name
         self.price = price
+        self.incr_next_id()
 
-    def print_info(self):
-        print(f"Produkt \"{self.name}\", id: {self.id}, cena: {self.price} PLN")
+    @classmethod
+    def incr_next_id(cls):
+        cls._NEXT_ID += 1
 
+    @classmethod
+    def get_id(cls):
+        return cls._NEXT_ID
 
-class Discount:
-    def __init__(self, amount):
-        self.amount = amount
-
-    def calculate(self, basket_total_price):
-        return basket_total_price - self.amount
-
-
-class ValueDiscount(Discount):
-
-    def __add__(self, other):
-        return ValueDiscount(self.amount + other.amount)
+    def show(self):
+        return f"{self.name} ({self.id}), cena: {self.price}"
 
 
-class PercentDiscount(Discount):
+def test_product():
+    pr = Product("woda", 10.99)
+    pr2 = Product("piwo", 10.99)
+    assert pr.id == 1
+    assert pr.name == "woda"
+    assert pr.price == 10.99
+    assert pr2.id == 2
 
-    def calculate(self, basket_total_price):
-        if self.amount:
-            return basket_total_price - basket_total_price * (self.amount / 100)
-        return basket_total_price
-
-    def __add__(self, other):
-        return PercentDiscount(self.amount + other.amount)
-
-
-class BasketEntry:
-    def __init__(self, product, quantity):
-        self.product = product
-        self.quantity = quantity
-
-    def count_price(self):
-        return self.product.cena * self.quantity
-
-    def generate_report(self):
-        return f" - {self.product.name} ({self.product.id}), cena: {self.product.price:.2f} x {self.quantity}\n"
+def test_product_show():
+    pr = Product( "woda", 10.99)
+    assert pr.show() == "woda (1), cena: 10.99"
