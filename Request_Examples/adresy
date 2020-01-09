@@ -1,0 +1,5 @@
+API: https://www.metaweather.com/api/
+
+Id lokalizacji: https://www.metaweather.com/api/location/search/?query=london
+
+Pogoda w lokalizacji: https://www.metaweather.com/api/location/44418/
