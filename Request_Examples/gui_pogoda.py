@@ -1,55 +1,26 @@
-"""
-Napisz program wyswietlajacy pogode dla wskazanej przez
-uzytkownika lokalizacji.
-Aplikacja ma działąć w trybie tekstowym:
-Przykład użycia:
-python pogoda.py warsaw
-1. Skorzystaj z sys.argv
-2. Obsłuż sytuację, gdy ktoś nie poada lokalizacji
-3. Użyj namedtuple
-4. Utwórz czytelne funkcje - get_location_id, get_location_weather, report_weather
-5. Zabezpiecz się przed wykonaniem kodu w momencie importu
-"""
-import sys
+import tkinter
+from pogoda import get_loaction_id, get_location_weather, weather_report
 
-from collections import namedtuple
-import requests
+def pobierz_pogode():
+    location_name = pole.get()
+    location_id = get_loaction_id(location_name)
+    weather = get_location_weather(location_id)
+    report = weather_report(weather)
 
-Weather = namedtuple('Weather', ['location_name', 'the_temp', 'air_pressure', 'humidity'])
+    wynik.configure(text=report)
 
+root = tkinter.Tk()
+label = tkinter.Label(master=root, text="Wpisz miasto: ")
+label.grid(row=1, column=1)
 
-def get_loaction_id(location_name):
-    resp = requests.get(f"https://www.metaweather.com/api/location/search/?query={location_name}")
-    return resp.json()[0]['woeid']
+pole = tkinter.Entry(master=root)
+pole.grid(row=1, column=2)
 
+button = tkinter.Button(master=root, text="Sprawdz", command=pobierz_pogode)
+button.grid(row=2, column=1)
 
-def get_location_weather(location_id):
-    resp = requests.get(f"https://www.metaweather.com/api/location/{location_id}/")
-    location = resp.json()['title']
-    curr_data = resp.json()["consolidated_weather"][0]
-    weather = Weather(
-        location_name=location,
-        the_temp=curr_data['the_temp'],
-        air_pressure=curr_data['air_pressure'],
-        humidity=curr_data['humidity']
-    )
-    return weather
+wynik = tkinter.Label(master=root)
+wynik.grid(row=2, column=2)
 
-
-def weather_report(weather):
-    report = f"""Pogoda w {weather.location_name}
-temperatura: {weather.the_temp}
-wilgotnosc: {weather.humidity}
-cisnienie: {weather.air_pressure}
-"""
-    return report
-
-if __name__ == "__main__":
-    try:
-        location_name = sys.argv[1]
-        location_id = get_loaction_id(location_name)
-        weather = get_location_weather(location_id)
-        report = weather_report(weather)
-        print(report)
-    except IndexError:
-        print("Podaj nazwe lokalizacji")
+root.mainloop()
+print("To jest po mainloop")

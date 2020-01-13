@@ -28,6 +28,6 @@ finally:
     f.close()
 
 #  manager kontekstu
-with open("otwieranie_pliku.py", encoding='utf-8') as f:
+with open("otwieranie_pliku.py", encoding='utf-8') as f: #tego uzywamy do otwierania pliku
     for l in f:
         print(l.upper())
