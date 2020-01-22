@@ -24,3 +24,9 @@ class CoachRepository:
         query = self.__connection.query("INSERT INTO coach (name, surname) VALUES (%s, %s)", [name, surname])
         return query.fetchall()
 
+    def findOnebyPrice(self, price):
+        query = self.__connection.query("SELECT * FROM coach WHERE price = ") [price]
+        return query.fetchall()
+
+
+
