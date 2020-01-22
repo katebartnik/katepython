@@ -16,7 +16,8 @@ class CoachRepository:
         return query.fetchall()
 
     def findOneByLanguage(self, language):
-        query = self.__connection.query("SELECT * FROM coach WHERE language = 2", [language])
+        query = self.__connection.query("SELECT * FROM coach LEFT JOIN coach_rank ON coach.coach_rank_"
+                                        "id = coach_rank.id WHERE coach_rank.name = 'VIP'", [language])
         return query.fetchall()
 
     def insertCoach(self, name, surname):
