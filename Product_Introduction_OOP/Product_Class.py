@@ -27,6 +27,7 @@ Zrobić przykład w nowym pliku o nazwie test.py który będzie:
  - wyświetlał listę produktów (productList)
 """
 
+
 from typing import *
 
 class Product:
