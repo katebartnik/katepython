@@ -1,0 +1,1 @@
+{"imie": "Jan", "nazwisko": "Kowalski", "wiek": 42, "dostepny": ["SALA01", "SALA02", "SALA03"], "wynagrodzenie": 12345.67, "manager": false, "auto": null}
