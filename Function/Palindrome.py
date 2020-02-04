@@ -9,15 +9,12 @@ is_palindrom("kot") is False
 
 def is_palindrom(text):
     text = text.lower()
-    # text = text.lower().replace(" ", "").replace(".", "").replace(",", "")
     signs_to_remove = ". ,;!?"
     for s in signs_to_remove:
         text = text.replace(s, "")
 
     return text == text[::-1]
-    # if text == text[::-1]:
-    #     return True
-    # return False
+
 
 
 def test_is_palindrom_for_palindrom():
