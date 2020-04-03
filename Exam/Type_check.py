@@ -8,3 +8,4 @@ def only_ints(a, b):
     if isinstance(a, int) and isinstance(b, int):
         return True
     return False
+print(only_ints())

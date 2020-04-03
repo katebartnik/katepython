@@ -7,7 +7,7 @@ For example, calling capital_indexes("HeLlO") should return the list [0, 2, 4].
 
 word = "PiecDziesiecioGroszOwka"
 
-def function(letter):
+def capital_index(letter):
     indexUpperLetters = []
     for index, letter in enumerate(word):
         if letter.isupper():
@@ -16,4 +16,4 @@ def function(letter):
     return indexUpperLetters
 
 
-print(function(word))
+print(capital_index(word))
